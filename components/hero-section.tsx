@@ -167,7 +167,8 @@ export const HeroSection: React.FC = () => {
               <div className="relative z-10">
                 <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800/10 rounded-3xl p-6 border border-white/20">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1742996111692-2d924f12a058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwYnVzaW5lc3MlMjB0ZWFtJTIwbWVldGluZyUyMG9mZmljZXxlbnwxfHx8fDE3NTcyNzg0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    // src="https://images.unsplash.com/photo-1742996111692-2d924f12a058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwYnVzaW5lc3MlMjB0ZWFtJTIwbWVldGluZyUyMG9mZmljZXxlbnwxfHx8fDE3NTcyNzg0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src="/m.jpg"
                     alt="International business team meeting"
                     className="w-full h-80 md:h-96 object-cover rounded-2xl"
                   />
@@ -201,35 +202,6 @@ export const HeroSection: React.FC = () => {
                     </div>
                   </motion.div>
                 </div>
-              </div>
-
-              {/* Secondary images grid */}
-              <div className="grid grid-cols-2 gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="backdrop-blur-md bg-white/10 dark:bg-gray-800/10 rounded-2xl p-3 border border-white/20"
-                >
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1694522362256-6c907336af43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXIlMjBoZWxtZXR8ZW58MXx8fHwxNzU3Mjc4NDA5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Construction worker"
-                    className="w-full h-32 md:h-40 object-cover rounded-xl"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="backdrop-blur-md bg-white/10 dark:bg-gray-800/10 rounded-2xl p-3 border border-white/20 flex items-center justify-center"
-                >
-                  <div className="text-center space-y-2">
-                    <Globe className="w-12 h-12 text-sky-500 mx-auto" />
-                    <div className="text-lg font-bold text-sky-600">15+</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Davlatlar</div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </motion.div>
