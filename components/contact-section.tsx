@@ -13,29 +13,40 @@ export const ContactSection: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Telegram bot orqali xabar yuborish (demo)
+
     const message = `🔔 Yangi so'rov!\n\n👤 Ism: ${formData.name}\n📞 Telefon: ${formData.phone}\n💬 Xabar: ${formData.message}`;
-    
-    // Demo uchun - haqiqiy telegram bot integration qo'shish mumkin
-    console.log('Form submitted:', formData);
-    console.log('Telegram message:', message);
-    
-    // Success message
-    toast.success(
-      language === 'uz' 
-        ? 'Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.' 
-        : 'Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.'
-    );
-    
-    // Reset form
-    setFormData({
-      name: '',
-      phone: '',
-      message: ''
-    });
+
+    try {
+      // Telegram API'ga POST yuborish
+      await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: -1002619344250,
+          text: message,
+          parse_mode: "HTML"
+        })
+      });
+
+      toast.success(
+          language === 'uz'
+              ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
+              : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
+      );
+
+      setFormData({ name: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Telegramga yuborishda xato:", error);
+      toast.error(
+          language === 'uz'
+              ? "Xabar yuborishda xato yuz berdi. Keyinroq urinib ko‘ring."
+              : "Произошла ошибка при отправке сообщения. Попробуйте позже."
+      );
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

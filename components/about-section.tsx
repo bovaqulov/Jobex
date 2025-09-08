@@ -72,42 +72,6 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Additional info */}
-          {/*<motion.div*/}
-          {/*    initial={{ opacity: 0, y: 20 }}*/}
-          {/*    whileInView={{ opacity: 1, y: 0 }}*/}
-          {/*    viewport={{ once: true }}*/}
-          {/*    transition={{ duration: 0.6, delay: 0.4 }}*/}
-          {/*    className="mt-16 text-center"*/}
-          {/*>*/}
-          {/*  <div className="backdrop-blur-md bg-sky-50/60 dark:bg-sky-900/20 rounded-2xl p-8 border border-sky-200/20">*/}
-          {/*    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">*/}
-          {/*      {t('about.unique_title')}*/}
-          {/*    </h3>*/}
-          {/*    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">*/}
-          {/*      <div className="text-center">*/}
-          {/*        <div className="text-lg font-medium text-gray-900 dark:text-white">*/}
-          {/*          {t('about.unique_1')}*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*      <div className="text-center">*/}
-          {/*        <div className="text-lg font-medium text-gray-900 dark:text-white">*/}
-          {/*          {t('about.unique_2')}*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*      <div className="text-center">*/}
-          {/*        <div className="text-lg font-medium text-gray-900 dark:text-white">*/}
-          {/*          {t('about.unique_3')}*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*      <div className="text-center">*/}
-          {/*        <div className="text-lg font-medium text-gray-900 dark:text-white">*/}
-          {/*          {t('about.unique_4')}*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*</motion.div>*/}
         </div>
       </section>
   );

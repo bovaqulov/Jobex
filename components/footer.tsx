@@ -138,9 +138,7 @@ export const Footer: React.FC = () => {
             <p className="text-gray-400 text-sm">
               {t('footer.rights')}
             </p>
-            <div className="flex items-center space-x-4 text-sm text-gray-400">
-              <span>Сделано с ❤️ для трудоустройства</span>
-            </div>
+
           </div>
         </motion.div>
       </div>
