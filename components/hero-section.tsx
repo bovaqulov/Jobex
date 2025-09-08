@@ -4,6 +4,7 @@ import { ArrowRight, Phone, CheckCircle, Users, Shield } from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { ImageWithFallback } from './figma/ImageWithFallback.tsx';
+import aimage from "../src/assets/m.jpg"
 
 export const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -168,7 +169,8 @@ export const HeroSection: React.FC = () => {
                 <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800/10 rounded-3xl p-6 border border-white/20">
                   <ImageWithFallback
                     // src="https://images.unsplash.com/photo-1742996111692-2d924f12a058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwYnVzaW5lc3MlMjB0ZWFtJTIwbWVldGluZyUyMG9mZmljZXxlbnwxfHx8fDE3NTcyNzg0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    src="/m.jpg"
+                    // src="/m.jpg"
+                    src={aimage}
                     alt="International business team meeting"
                     className="w-full h-80 md:h-96 object-cover rounded-2xl"
                   />
