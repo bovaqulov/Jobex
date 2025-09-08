@@ -4,7 +4,7 @@ import { ArrowRight, Phone, CheckCircle, Users, Shield } from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { ImageWithFallback } from './figma/ImageWithFallback.tsx';
-import aimage from "../src/assets/m.jpg"
+import aimage from "@assets/m.jpg"
 
 export const HeroSection: React.FC = () => {
   const { t } = useLanguage();

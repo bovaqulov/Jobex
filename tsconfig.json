@@ -24,6 +24,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
+      "@assets/*": ["../src/assets/*"]
+
     }
   },
   "include": ["."],
