@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, CheckCircle, Users, Globe, Shield } from 'lucide-react';
+import { ArrowRight, Phone, CheckCircle, Users, Shield } from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { ImageWithFallback } from './figma/ImageWithFallback.tsx';
