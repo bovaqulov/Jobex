@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Bosh sahifa -->
+    <url>
+        <loc>https://jobex-xba.uz/</loc>
+        <lastmod>2025-09-11</lastmod>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Bo‘limlar (agar bo‘lgan bo‘lsa) -->
+    <url>
+        <loc>https://jobex-xba.uz/#about</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://jobex-xba.uz/#services</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://jobex-xba.uz/#directions</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://jobex-xba.uz/#news</loc>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://jobex-xba.uz/#testimonials</loc>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://jobex-xba.uz/#contact</loc>
+        <priority>0.9</priority>
+    </url>
+
+</urlset>
