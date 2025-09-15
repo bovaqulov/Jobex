@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, Instagram, Send, Clock, Facebook, Music2Icon } from 'lucide-react';
 import { useLanguage } from './language-context.tsx';
+import {ImageWithFallback} from "./figma/ImageWithFallback.tsx";
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -34,8 +35,8 @@ export const Footer: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="mb-6">
-              <img src="public/logo.png" width={150}/>
+            <div className="mb-4">
+              <ImageWithFallback src="public/logo.png" className="w-35"/>
             </div>
 
             

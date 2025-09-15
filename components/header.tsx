@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon, Phone } from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { useTheme } from './theme-provider.tsx';
+import {ImageWithFallback} from "./figma/ImageWithFallback.tsx";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="justify-center text-center">
-            <img src="public/logo.png" alt="logo" width={150} className="dark:text-gray-50" />
+            <ImageWithFallback src="public/logo.png" alt="logo" className="dark:text-gray-50 w-35" />
           </div>
 
 
