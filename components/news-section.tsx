@@ -18,6 +18,7 @@ export const NewsSection: React.FC = () => {
     return date.toLocaleDateString(language === 'uz' ? 'uz-UZ' : 'ru-RU', options);
   };
 
+
   return (
     <section id="news" className="py-20 bg-gray-50 dark:bg-gray-800/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
