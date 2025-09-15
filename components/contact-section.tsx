@@ -5,9 +5,17 @@ import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { toast } from 'sonner';
 
+
+type FormData = {
+  name: string;
+  phone: string;
+  message: string;
+  countries: string[];
+};
+
 export const ContactSection: React.FC = () => {
   const { t, language } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
     message: '',
