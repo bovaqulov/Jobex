@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Instagram, Send, Clock, Globe } from 'lucide-react';
+import { Phone, MapPin, Send, Clock, Globe } from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { toast } from 'sonner';
@@ -183,31 +183,6 @@ export const ContactSection: React.FC = () => {
                       {t('footer.workingHours.time')}
                     </p>
                   </div>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div className="backdrop-blur-md bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-white/20">
-                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-                  {t('contact.social')}
-                </h3>
-                <div className="flex space-x-4">
-                  <a
-                      href="https://www.instagram.com/jobex.uz?igsh=MWw0dm94MWdtOXlveA=="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center hover:scale-105 transition-transform"
-                  >
-                    <Instagram className="w-6 h-6 text-white" />
-                  </a>
-                  <a
-                      href="https://t.me/jobex_uz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center hover:scale-105 transition-transform"
-                  >
-                    <Send className="w-6 h-6 text-white" />
-                  </a>
                 </div>
               </div>
             </motion.div>

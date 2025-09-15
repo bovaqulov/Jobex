@@ -1,13 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Instagram, Send, Clock } from 'lucide-react';
+import { Phone, MapPin, Instagram, Send, Clock, Facebook, Music2Icon } from 'lucide-react';
 import { useLanguage } from './language-context.tsx';
-import { useTheme } from './theme-provider.tsx';
-import { Logo } from './logo.tsx';
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
-  const { theme } = useTheme();
+  const { t, language } = useLanguage();
 
   const quickLinks = [
     { key: 'about', href: '#about' },
@@ -38,7 +35,7 @@ export const Footer: React.FC = () => {
             className="lg:col-span-2"
           >
             <div className="mb-6">
-              <Logo size="md" dark={theme === "dark"} />
+              <img src="public/logo.png" width={150}/>
             </div>
 
             
@@ -104,7 +101,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <h4 className="text-lg font-semibold mb-4">Ijtimoiy tarmoqlar</h4>
+            <h4 className="text-lg font-semibold mb-4">{language == "uz" ? "Ijtimoiy tarmoqlar" : "Социальные сети" }</h4>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/jobex.uz?igsh=MWw0dm94MWdtOXlveA=="
@@ -122,6 +119,24 @@ export const Footer: React.FC = () => {
               >
                 <Send className="w-5 h-5 text-white" />
               </a>
+
+              <a
+                href="https://www.facebook.com/share/1CCXRpgTJV/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-blue-800 rounded-lg flex items-center justify-center hover:scale-105 transition-transform"
+              >
+                <Facebook className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@jobex.uz?_t=ZS-8zkSt1bpi8Q&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform"
+              >
+                <Music2Icon className="w-5 h-5 text-white" />
+              </a>
+
             </div>
           </motion.div>
         </div>

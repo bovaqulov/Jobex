@@ -17,7 +17,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="top-15 relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="absolute inset-0 opacity-30 bg-gradient-to-r from-sky-400/10 to-blue-600/10 dark:from-sky-600/10 dark:to-blue-800/10"></div>
