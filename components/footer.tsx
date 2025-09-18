@@ -12,7 +12,6 @@ export const Footer: React.FC = () => {
     { key: 'services', href: '#services' },
     { key: 'directions', href: '#directions' },
     { key: 'news', href: '#news' },
-    { key: 'testimonials', href: '#testimonials' },
     { key: 'contact', href: '#contact' },
   ];
 
@@ -36,7 +35,11 @@ export const Footer: React.FC = () => {
             className="lg:col-span-2"
           >
             <div className="mb-4">
-              <ImageWithFallback src="public/logo.png" className="w-35"/>
+              <ImageWithFallback
+                  src="/logo.png"
+                  alt="JobEx Logo"
+                  className="h-10 w-auto dark:filter dark:brightness-110"
+              />
             </div>
 
             

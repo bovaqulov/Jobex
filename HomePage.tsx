@@ -6,7 +6,6 @@ import {AboutSection} from './components/about-section.tsx';
 import {ServicesSection} from './components/services-section.tsx';
 import {DirectionsSection} from './components/directions-section.tsx';
 import {NewsSection} from './components/news-section.tsx';
-// import { TestimonialsSection } from './components/testimonials-section.tsx';
 import {ContactSection} from './components/contact-section.tsx';
 import {Footer} from './components/footer.tsx';
 import {ScrollToTop} from './components/scroll-to-top.tsx';
@@ -26,7 +25,6 @@ export default function HomePage() {
                         <ServicesSection/>
                         <DirectionsSection/>
                         <NewsSection/>
-                        {/*<TestimonialsSection />*/}
                         <ContactSection/>
                     </main>
                     <Footer/>
