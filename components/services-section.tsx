@@ -132,11 +132,6 @@ export const ServicesSection: React.FC = () => {
                   {t('advantages.support24')}
                 </div>
               </div>
-              <div className="backdrop-blur-md bg-white/60 dark:bg-gray-800/60 rounded-xl p-6 text-center border border-white/20">
-                <div className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  {t('advantages.replacement')}
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
