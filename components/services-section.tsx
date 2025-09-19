@@ -116,7 +116,7 @@ export const ServicesSection: React.FC = () => {
             <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900 dark:text-white">
               {t('advantages.title')}
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="backdrop-blur-md bg-white/60 dark:bg-gray-800/60 rounded-xl p-6 text-center border border-white/20">
                 <div className="text-lg font-medium text-gray-900 dark:text-white mb-2">
                   {t('advantages.insurance')}
