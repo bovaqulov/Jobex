@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Users, Headphones, FileCheck } from 'lucide-react';
 import { useLanguage } from './language-context.tsx';
+import {ImageWithFallback} from "./figma/ImageWithFallback.tsx";
 
 export const AboutSection: React.FC = () => {
   const { t } = useLanguage();
@@ -37,15 +38,34 @@ export const AboutSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="relative flex flex-col md:flex-row items-center md:items-start gap-12 mb-20"
           >
-            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
-              {t('about.title')}
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              {t('about.description')}
-            </p>
+            {/* Chapdagi rasm */}
+
+
+            {/* O‘ngdagi matn */}
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
+                {t("about.title")}
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+                {t("about.description")}
+              </p>
+            </div>
+            <div className="flex-1 flex justify-center md:justify-start">
+              <div className="relative">
+                <img
+                    src="/data/ser_1.jpg"
+                    alt="About illustration"
+                    className="w-90 rounded-3xl shadow-2xl"
+                />
+                {/* Dekorativ gradient background */}
+                <div className="absolute -z-10 inset-0 translate-x-6 translate-y-6 rounded-3xl bg-gradient-to-r from-sky-500 to-blue-600 opacity-20 blur-2xl"></div>
+              </div>
+            </div>
           </motion.div>
+
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
