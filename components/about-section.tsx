@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, Users, Headphones, FileCheck } from 'lucide-react';
 import { useLanguage } from './language-context.tsx';
 import {ImageWithFallback} from "./figma/ImageWithFallback.tsx";
+import aimage from "@assets/ser_1.jpg"
 
 export const AboutSection: React.FC = () => {
   const { t } = useLanguage();
@@ -55,7 +56,7 @@ export const AboutSection: React.FC = () => {
             <div className="flex-1 flex justify-center md:justify-start">
               <div className="relative">
                 <ImageWithFallback
-                    src="./src/assets/ser_1.jpg"
+                    src={aimage}
                     alt="About illustration"
                     className="w-90 rounded-3xl shadow-2xl"
                 />
