@@ -54,7 +54,7 @@ export const AboutSection: React.FC = () => {
             </div>
             <div className="flex-1 flex justify-center md:justify-start">
               <div className="relative">
-                <img
+                <ImageWithFallback
                     src="/data/ser_1.jpg"
                     alt="About illustration"
                     className="w-90 rounded-3xl shadow-2xl"
