@@ -157,8 +157,11 @@ export const Footer: React.FC = () => {
             <p className="text-gray-400 text-sm">
               {t('footer.rights')}
             </p>
-
+            <p className="text-gray-400 text-sm">
+              Разработано компанией <a href="https://yoqutdigital.uz">Yakut Digital</a>.
+            </p>
           </div>
+
         </motion.div>
       </div>
     </footer>
