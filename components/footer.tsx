@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
                 <input type="tel" placeholder={t('contact.phoneNumber')} className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700" />
                 <textarea placeholder={t('contact.message')} rows={4} className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700"></textarea>
                 <button type="submit" className="w-full py-3 bg-sky-500 hover:bg-sky-600 rounded-lg text-white transition-colors">
-                  {t('form.send')}
+                  {t('contact.send')}
                 </button>
               </form>
             </div>
