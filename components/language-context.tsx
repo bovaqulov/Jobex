@@ -116,7 +116,7 @@ const translations = {
     'footer.quickLinks': 'Tezkor havolalar',
     'footer.workingHours': 'Ish vaqti',
     'footer.workingHours.time': 'Dushanba - Juma: 9:00 - 18:00',
-    'footer.rights': '© 2024 Jobex_uz. Barcha huquqlar himoyalangan.',
+    'footer.rights': '© 2025 Jobex_uz. Barcha huquqlar himoyalangan.',
     
     // Additional
     'advantages.title': 'Bizning afzalliklarimiz',
@@ -231,7 +231,7 @@ const translations = {
     'footer.quickLinks': 'Быстрые ссылки',
     'footer.workingHours': 'Часы работы',
     'footer.workingHours.time': 'Понедельник - Пятница: 9:00 - 18:00',
-    'footer.rights': '© 2024 Jobex_uz. Все права защищены.',
+    'footer.rights': '© 2025 Jobex.uz. Все права защищены.',
     
     // Additional
     'advantages.title': 'Наши преимущества',
