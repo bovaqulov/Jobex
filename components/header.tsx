@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
 
               {/* Phone */}
               <a
-                  href="tel:+998950057500"
+                  href="tel:+998555118866"
                   className="hidden lg:flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
               >
                 <Phone className="w-4 h-4" />
@@ -139,7 +139,7 @@ export const Header: React.FC = () => {
                       </button>
                   ))}
                   <a
-                      href="tel:+998950057500"
+                      href="tel:+998555118866"
                       className="flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors mt-4"
                   >
                     <Phone className="w-4 h-4" />

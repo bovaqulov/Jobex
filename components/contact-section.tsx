@@ -138,10 +138,10 @@ export const ContactSection: React.FC = () => {
                       {t('contact.phone')}
                     </h3>
                     <a
-                        href="tel:+998950057500"
+                        href="tel:+998555118866"
                         className="text-sky-600 hover:text-sky-700 transition-colors text-lg"
                     >
-                      +998 95 005 75 00
+                      +998 55 511 88 66
                     </a>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ export const ContactSection: React.FC = () => {
                   </p>
                   <div className="flex justify-center space-x-6 mt-4">
                     <a
-                        href="tel:+998950057500"
+                        href="tel:+998555118866"
                         className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors"
                     >
                       <Phone className="w-4 h-4" />
