@@ -63,15 +63,22 @@ export default function SpecialInstagramForm() {
         });
 
         // === TELEGRAM ===
-        await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
+        await fetch(`https://api.telegram.org/botTOKEN/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 chat_id: -1002619344250,
-                text: formData.message,
+                text: `
+<b>Yangi Instagram linkdan</b>\n
+👤 Ism: ${formData.name}
+📞 Telefon: ${formData.phone}
+🌍 Davlatlar: ${formData.countries.join(", ")}
+💬 Xabar: ${formData.message}
+        `,
                 parse_mode: "HTML"
             })
         });
+
 
         alert(language === 'uz'
             ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
@@ -188,7 +195,7 @@ export default function SpecialInstagramForm() {
                         {language === 'uz' ? "Yoki to'g'ridan-to'g'ri bog'laning:" : "Или свяжитесь с нами напрямую:"}
                     </p>
                     <div className="flex justify-center space-x-6 mt-4">
-                        <a href="tel:+998950057500" className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors">
+                        <a href="tel:+998555118866" className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors">
                             <Phone className="w-4 h-4" />
                             <span className="text-sm">{language === 'uz' ? "Qo'ng'iroq qilish" : "Позвонить"}</span>
                         </a>
