@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Send, Phone, Globe } from 'lucide-react';
-import {useNavigate} from "react-router";
 
 type FormData = {
     name: string;
@@ -12,7 +11,6 @@ type FormData = {
 
 export default function SpecialInstagramForm() {
     const [language, setLanguage] = useState('uz');
-    const navigate = useNavigate();
     const [formData, setFormData] = useState<FormData>({
         name: '',
         phone: '',
@@ -48,45 +46,37 @@ export default function SpecialInstagramForm() {
             .map(country => countryOptions.find(c => c.value === country)?.label)
             .join(', ');
 
-        const message = `
-🔸 <b>Forma orqali murojaat</b>
+        // === BITRIX ===
+        await fetch("https://jobex.bitrix24.kz/rest/1/pfdkq05czfdilqlp/crm.lead.add.json", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                fields: {
+                    TITLE: "Instagram forma orqali yangi lead",
+                    NAME: formData.name,
+                    PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
+                    COMMENTS: formData.message,
+                    UF_CRM_COUNTRIES: selectedCountries
+                },
+                params: { "REGISTER_SONET_EVENT": "Y" }
+            })
+        });
 
-👤 <b>Ism:</b> ${formData.name}
-📱 <b>Telefon:</b> ${formData.phone}
-🌍 <b>Davlatlar:</b> ${selectedCountries || 'Tanlanmagan'}
-💬 <b>Xabar:</b> ${formData.message}
+        // === TELEGRAM ===
+        await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: -1002619344250,
+                text: formData.message,
+                parse_mode: "HTML"
+            })
+        });
 
-📅 <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ')}
-        `;
-
-        try {
-            await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    chat_id: -1002619344250,
-                    text: message,
-                    parse_mode: "HTML"
-                })
-            });
-
-            alert(
-                language === 'uz'
-                    ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
-                    : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
-            );
-
-
-            setFormData({ name: "", phone: "", message: "", countries: [] });
-            navigate("/");
-        } catch (error) {
-            console.error("Telegramga yuborishda xato:", error);
-            alert(
-                language === 'uz'
-                    ? "Xabar yuborishda xato yuz berdi. Keyinroq urinib ko'ring."
-                    : "Произошла ошибка при отправке сообщения. Попробуйте позже."
-            );
-        }
+        alert(language === 'uz'
+            ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
+            : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
+        );
     };
 
     return (

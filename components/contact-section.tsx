@@ -51,35 +51,50 @@ export const ContactSection: React.FC = () => {
         ).join(', ')
         : (language === 'uz' ? 'Ko\'rsatilmagan' : 'Не указано');
 
-    const message = `🔔 Yangi so'rov!\n\n👤 Ism: ${formData.name}\n📞 Telefon: ${formData.phone}\n🌍 Qaysi davlatlarda ishlamoqchi: ${selectedCountries}\n💬 Xabar: ${formData.message}`;
+    const telegramMessage = `🔔 Yangi so'rov!\n\n👤 Ism: ${formData.name}\n📞 Telefon: ${formData.phone}\n🌍 Qaysi davlatlarda ishlamoqchi: ${selectedCountries}\n💬 Xabar: ${formData.message}`;
 
     try {
-      // Telegram API'ga POST yuborish
+
+      // 1️⃣ Telegramga yuborish
       await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: -1002619344250,
-          text: message,
+          text: telegramMessage,
           parse_mode: "HTML"
+        })
+      });
+
+      // 2️⃣ Bitrix24 CRMga yuborish
+      await fetch("https://jobex.bitrix24.kz/rest/1/pfdkq05czfdilqlp/crm.lead.add.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: {
+            TITLE: `Saytdan lead — ${formData.name}`,
+            NAME: formData.name,
+            PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
+            COMMENTS: `Xabar: ${formData.message}\nDavlatlar: ${selectedCountries}`,
+            SOURCE_ID: "WEB"
+          }
         })
       });
 
       toast.success(
           language === 'uz'
-              ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
-              : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
+              ? "Xabaringiz foydalanish uchun qabul qilindi!"
+              : "Ваш запрос успешно отправлен!"
       );
 
       setFormData({ name: "", phone: "", message: "", countries: [] });
+
     } catch (error) {
-      console.error("Telegramga yuborishda xato:", error);
+      console.error("Xato:", error);
       toast.error(
           language === 'uz'
-              ? "Xabar yuborishda xato yuz berdi. Keyinroq urinib ko'ring."
-              : "Произошла ошибка при отправке сообщения. Попробуйте позже."
+              ? "Xatolik yuz berdi. Keyinroq urinib ko'ring."
+              : "Произошла ошибка. Попробуйте позже."
       );
     }
   };
