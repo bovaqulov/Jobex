@@ -67,7 +67,7 @@ export const ContactSection: React.FC = () => {
       });
 
       // 2️⃣ Bitrix24 CRMga yuborish
-      await fetch("https://jobex.bitrix24.kz/rest/1/pfdkq05czfdilqlp/crm.lead.add.json", {
+      await fetch("https://jobex.bitrix24.kz/rest/1/i6xone91ekpq399a/crm.lead.add.json", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
