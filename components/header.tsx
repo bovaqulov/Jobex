@@ -105,7 +105,7 @@ export const Header: React.FC = () => {
                   className="hidden lg:flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>+998 95 005 75 00</span>
+                <span>+998 55 511 88 66</span>
               </a>
 
               {/* Mobile Menu Button */}
@@ -143,7 +143,7 @@ export const Header: React.FC = () => {
                       className="flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors mt-4"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>+998 95 005 75 00</span>
+                    <span>+ 998 55 511 88 66</span>
                   </a>
                 </nav>
               </motion.div>
