@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Send, Phone, Globe } from 'lucide-react';
 
+import {useNavigate} from "react-router-dom";
+
+const navigate = useNavigate();
+
 type FormData = {
     name: string;
     phone: string;
@@ -84,6 +88,7 @@ export default function SpecialInstagramForm() {
             ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
             : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
         );
+        navigate("/");
     };
 
     return (
