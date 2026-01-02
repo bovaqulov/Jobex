@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Send, Phone, Globe } from 'lucide-react';
 
 
-
 type FormData = {
     name: string;
     phone: string;
@@ -42,7 +41,6 @@ export default function SpecialInstagramForm() {
     };
 
     const handleSubmit = async (e: any) => {
-        e.preventDefault();
 
         const selectedCountries = formData.countries
             .map(country => countryOptions.find(c => c.value === country)?.label)
