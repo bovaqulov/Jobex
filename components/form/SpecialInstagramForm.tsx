@@ -40,8 +40,8 @@ export default function SpecialInstagramForm() {
         }));
     };
 
-    const handleSubmit = async () => {
-
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
 
         const selectedCountries = formData.countries
             .map(country => countryOptions.find(c => c.value === country)?.label)
