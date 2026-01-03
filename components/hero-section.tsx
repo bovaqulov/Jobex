@@ -128,7 +128,7 @@ export const HeroSection: React.FC = () => {
                                 className="border-2 border-sky-500 text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-950 px-8 py-3 rounded-xl backdrop-blur-md bg-white/60 dark:bg-gray-800/60"
                                 asChild
                             >
-                                <a href="tel:+998950057500" className="flex items-center">
+                                <a href="tel:+998555118866" className="flex items-center">
                                     <Phone className="w-5 h-5 mr-2"/>
                                     {t('hero.phone')}
                                 </a>
