@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Send, Clock, Globe } from 'lucide-react';
+import {Phone, MapPin, Send, Clock, Globe, Mail} from 'lucide-react';
 import { Button } from './ui/button.tsx';
 import { useLanguage } from './language-context.tsx';
 import { toast } from 'sonner';
@@ -25,19 +25,35 @@ export const ContactSection: React.FC = () => {
   const countryOptions = [
     {
       value: 'russia',
-      label: language === 'uz' ? 'Rossiya' : 'Россия'
+      label: language === 'uz'
+          ? 'Rossiya'
+          : language === 'ru'
+              ? 'Россия'
+              : 'Russia'
     },
     {
       value: 'arab',
-      label: language === 'uz' ? 'Arab davlatlari' : 'Арабские страны'
+      label: language === 'uz'
+          ? 'Arab davlatlari'
+          : language === 'ru'
+              ? 'Арабские страны'
+              : 'Arab countries'
     },
     {
       value: 'europe',
-      label: language === 'uz' ? 'Yevropa' : 'Европа'
+      label: language === 'uz'
+          ? 'Yevropa'
+          : language === 'ru'
+              ? 'Европа'
+              : 'Europe'
     },
     {
       value: 'korea',
-      label: language === 'uz' ? 'Janubiy Koreya' : 'Южная Корея'
+      label: language === 'uz'
+          ? 'Janubiy Koreya'
+          : language === 'ru'
+              ? 'Южная Корея'
+              : 'South Korea'
     }
   ];
 
@@ -161,6 +177,26 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Email */}
+              <div className="backdrop-blur-md bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-white/20">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                      {t('contact.email')}
+                    </h3>
+                    <a
+                        href="mailto:jobexuz@gmail.com"
+                        className="text-sky-600 hover:text-sky-700 transition-colors text-lg"
+                    >
+                      jobexuz@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Address */}
               <div className="backdrop-blur-md bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-white/20">
                 <div className="flex items-start space-x-4">
@@ -246,7 +282,13 @@ export const ContactSection: React.FC = () => {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                       <Globe className="w-4 h-4 inline mr-2" />
-                      {language === 'uz' ? "Qaysi davlatlarda ishlamoqchisiz?" : "В каких странах хотите работать?"}
+                      {
+                        language === 'uz'
+                            ? "Qaysi davlatlarda ishlamoqchisiz?"
+                            : language === 'ru'
+                                ? "В каких странах хотите работать?"
+                                : "In which countries do you want to work?"
+                      }
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {countryOptions.map((country) => (
@@ -309,7 +351,13 @@ export const ContactSection: React.FC = () => {
                 {/* Additional contact info */}
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
                   <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                    {language === 'uz' ? "Yoki to'g'ridan-to'g'ri bog'laning:" : "Или свяжитесь с нами напрямую:"}
+                    {
+                      language === 'uz'
+                          ? "Yoki to'g'ridan-to'g'ri bog'laning:"
+                          : language === 'ru'
+                              ? "Или свяжитесь с нами напрямую:"
+                              : "Or contact us directly:"
+                    }
                   </p>
                   <div className="flex justify-center space-x-6 mt-4">
                     <a
@@ -317,7 +365,13 @@ export const ContactSection: React.FC = () => {
                         className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors"
                     >
                       <Phone className="w-4 h-4" />
-                      <span className="text-sm">{language === 'uz' ? "Qo'ng'iroq qilish" : "Позвонить"}</span>
+                      <span className="text-sm">{
+                        language === 'uz'
+                            ? "Qo'ng'iroq qilish"
+                            : language === 'ru'
+                                ? "Позвонить"
+                                : "Call"
+                      }</span>
                     </a>
                     <a
                         href="https://t.me/jobex_uz"

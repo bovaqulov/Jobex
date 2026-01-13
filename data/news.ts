@@ -1,6 +1,7 @@
 export interface LocalizedText {
   uz: string;
   ru: string;
+  en: string;
 }
 
 export interface NewsItem {

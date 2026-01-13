@@ -87,6 +87,16 @@ export const Header: React.FC = () => {
                 >
                   RU
                 </button>
+                <button
+                    onClick={() => setLanguage('en')}
+                    className={`px-2 py-1 rounded text-sm font-medium transition-all ${
+                        language === 'en'
+                            ? 'bg-sky-500 text-white'
+                            : 'text-gray-600 dark:text-gray-400 hover:text-sky-600'
+                    }`}
+                >
+                  EN
+                </button>
               </div>
 
               {/* Theme Switcher */}

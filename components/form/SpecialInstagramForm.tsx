@@ -20,11 +20,43 @@ export default function SpecialInstagramForm() {
     });
 
     const countryOptions = [
-        { value: 'russia', label: language === 'uz' ? 'Rossiya' : 'Россия' },
-        { value: 'arab', label: language === 'uz' ? 'Arab davlatlari' : 'Арабские страны' },
-        { value: 'europe', label: language === 'uz' ? 'Yevropa' : 'Европа' },
-        { value: 'korea', label: language === 'uz' ? 'Janubiy Koreya' : 'Южная Корея' }
+        {
+            value: 'russia',
+            label: language === 'uz'
+                ? 'Rossiya'
+                : language === 'ru'
+                    ? 'Россия'
+                    : 'Russia'
+        },
+        {
+            value: 'arab',
+            label: language === 'uz'
+                ? 'Arab davlatlari'
+                : language === 'ru'
+                    ? 'Арабские страны'
+                    : 'Arab countries'
+        },
+        {
+            value: 'europe',
+            label: language === 'uz'
+                ? 'Yevropa'
+                : language === 'ru'
+                    ? 'Европа'
+                    : 'Europe'
+        },
+        {
+            value: 'korea',
+            label: language === 'uz'
+                ? 'Janubiy Koreya'
+                : language === 'ru'
+                    ? 'Южная Корея'
+                    : 'South Korea'
+        }
     ];
+
+    const getText = (uzText: string, ruText: string, enText: string) => {
+        return language === 'uz' ? uzText : language === 'ru' ? ruText : enText;
+    };
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
@@ -54,7 +86,11 @@ export default function SpecialInstagramForm() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     fields: {
-                        TITLE: "Instagram forma orqali yangi lead",
+                        TITLE: getText(
+                            "Instagram forma orqali yangi lead",
+                            "Новый лид через форму Instagram",
+                            "New lead from Instagram form"
+                        ),
                         NAME: formData.name,
                         PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
                         COMMENTS: formData.message,
@@ -65,39 +101,48 @@ export default function SpecialInstagramForm() {
             });
 
             // === TELEGRAM ===
+            const telegramText = getText(
+                `<b>Yangi Instagram linkdan</b>\n\n👤 Ism: ${formData.name}\n📞 Telefon: ${formData.phone}\n🌍 Davlatlar: ${formData.countries.join(", ")}\n💬 Xabar: ${formData.message}`,
+                `<b>Новый лид из Instagram</b>\n\n👤 Имя: ${formData.name}\n📞 Телефон: ${formData.phone}\n🌍 Страны: ${formData.countries.join(", ")}\n💬 Сообщение: ${formData.message}`,
+                `<b>New lead from Instagram</b>\n\n👤 Name: ${formData.name}\n📞 Phone: ${formData.phone}\n🌍 Countries: ${formData.countries.join(", ")}\n💬 Message: ${formData.message}`
+            );
+
             await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     chat_id: -1002619344250,
-                    text: `
-<b>Yangi Instagram linkdan</b>\n
-👤 Ism: ${formData.name}
-📞 Telefon: ${formData.phone}
-🌍 Davlatlar: ${formData.countries.join(", ")}
-💬 Xabar: ${formData.message}
-        `,
+                    text: telegramText,
                     parse_mode: "HTML"
                 })
             });
 
             // Show success message
-            alert(language === 'uz'
-                ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
-                : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
-            );
+            alert(getText(
+                "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+                "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.",
+                "Your message has been sent successfully! We will contact you soon."
+            ));
 
             // Navigate to home page after successful submission
             navigate("/");
 
         } catch (error) {
-            console.error("Xatolik yuz berdi:", error);
-            alert(language === 'uz'
-                ? "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
-                : "Произошла ошибка. Пожалуйста, попробуйте еще раз."
-            );
+            console.error(getText("Xatolik yuz berdi:", "Произошла ошибка:", "Error occurred:"), error);
+            alert(getText(
+                "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+                "Произошла ошибка. Пожалуйста, попробуйте еще раз.",
+                "An error occurred. Please try again."
+            ));
         }
     };
+
+    const languageOptions = [
+        { value: 'uz', label: "O'zbekcha" },
+        { value: 'ru', label: 'Русский' },
+        { value: 'en', label: 'English' }
+    ];
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
             <div className="backdrop-blur-md bg-white/80 dark:bg-gray-800/80 rounded-3xl p-8 border border-white/20 w-full max-w-lg shadow-xl">
@@ -105,7 +150,7 @@ export default function SpecialInstagramForm() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {language === 'uz' ? 'Ismingiz' : 'Ваше имя'}
+                            {getText('Ismingiz', 'Ваше имя', 'Your Name')}
                         </label>
                         <input
                             id="name"
@@ -113,7 +158,7 @@ export default function SpecialInstagramForm() {
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            placeholder={language === 'uz' ? 'Ismingiz' : 'Ваше имя'}
+                            placeholder={getText('Ismingiz', 'Ваше имя', 'Your Name')}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 bg-white/60 dark:bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
                             required
                         />
@@ -121,7 +166,7 @@ export default function SpecialInstagramForm() {
 
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {language === 'uz' ? 'Telefon raqam' : 'Номер телефона'}
+                            {getText('Telefon raqam', 'Номер телефона', 'Phone Number')}
                         </label>
                         <input
                             id="phone"
@@ -129,7 +174,7 @@ export default function SpecialInstagramForm() {
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            placeholder={language === 'uz' ? '+998 90 123 45 67' : '+998 90 123 45 67'}
+                            placeholder={getText('+998 90 123 45 67', '+998 90 123 45 67', '+998 90 123 45 67')}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 bg-white/60 dark:bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
                             required
                         />
@@ -139,7 +184,11 @@ export default function SpecialInstagramForm() {
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                             <Globe className="w-4 h-4 inline mr-2" />
-                            {language === 'uz' ? "Qaysi davlatlarda ishlamoqchisiz?" : "В каких странах хотите работать?"}
+                            {getText(
+                                "Qaysi davlatlarda ishlamoqchisiz?",
+                                "В каких странах хотите работать?",
+                                "In which countries do you want to work?"
+                            )}
                         </label>
                         <div className="grid grid-cols-2 gap-3">
                             {countryOptions.map((country) => (
@@ -178,7 +227,7 @@ export default function SpecialInstagramForm() {
 
                     <div>
                         <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {language === 'uz' ? 'Xabaringiz' : 'Ваше сообщение'}
+                            {getText('Xabaringiz', 'Ваше сообщение', 'Your Message')}
                         </label>
                         <textarea
                             id="message"
@@ -186,7 +235,7 @@ export default function SpecialInstagramForm() {
                             value={formData.message}
                             onChange={handleInputChange}
                             rows={4}
-                            placeholder={language === 'uz' ? 'Xabaringiz' : 'Ваше сообщение'}
+                            placeholder={getText('Xabaringiz', 'Ваше сообщение', 'Your Message')}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 bg-white/60 dark:bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all resize-none"
                             required
                         />
@@ -196,7 +245,7 @@ export default function SpecialInstagramForm() {
                         type="submit"
                         className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2"
                     >
-                        <span>{language === 'uz' ? 'Yuborish' : 'Отправить'}</span>
+                        <span>{getText('Yuborish', 'Отправить', 'Submit')}</span>
                         <Send className="w-5 h-5" />
                     </button>
                 </form>
@@ -204,12 +253,16 @@ export default function SpecialInstagramForm() {
                 {/* Additional contact info */}
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
                     <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                        {language === 'uz' ? "Yoki to'g'ridan-to'g'ri bog'laning:" : "Или свяжитесь с нами напрямую:"}
+                        {getText(
+                            "Yoki to'g'ridan-to'g'ri bog'laning:",
+                            "Или свяжитесь с нами напрямую:",
+                            "Or contact us directly:"
+                        )}
                     </p>
                     <div className="flex justify-center space-x-6 mt-4">
                         <a href="tel:+998555118866" className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors">
                             <Phone className="w-4 h-4" />
-                            <span className="text-sm">{language === 'uz' ? "Qo'ng'iroq qilish" : "Позвонить"}</span>
+                            <span className="text-sm">{getText("Qo'ng'iroq qilish", "Позвонить", "Call")}</span>
                         </a>
                         <a href="https://t.me/jobex_uz" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 transition-colors">
                             <Send className="w-4 h-4" />
@@ -218,14 +271,21 @@ export default function SpecialInstagramForm() {
                     </div>
                 </div>
 
-                <div className="mt-4 flex justify-center">
-                    <button
-                        type="button"
-                        onClick={() => setLanguage(language === 'uz' ? 'ru' : 'uz')}
-                        className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-                    >
-                        {language === 'uz' ? 'Русский' : "O'zbekcha"}
-                    </button>
+                <div className="mt-4 flex justify-center space-x-4">
+                    {languageOptions.map((option) => (
+                        <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => setLanguage(option.value)}
+                            className={`text-sm px-3 py-1 rounded transition-colors ${
+                                language === option.value
+                                    ? 'bg-sky-500 text-white'
+                                    : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                            }`}
+                        >
+                            {option.label}
+                        </button>
+                    ))}
                 </div>
             </div>
         </div>

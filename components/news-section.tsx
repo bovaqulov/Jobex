@@ -17,7 +17,7 @@ export const NewsSection: React.FC = () => {
             day: 'numeric'
         };
         return date.toLocaleDateString(
-            language === 'uz' ? 'uz-UZ' : 'ru-RU',
+            language === 'uz' ? 'uz-UZ' : language === 'ru' ? 'ru-RU' : 'en-US',
             options
         );
     };
@@ -82,9 +82,13 @@ export const NewsSection: React.FC = () => {
                         ))
                 ) : (
                         <p className="text-gray-600 dark:text-gray-400 mb-4 text-center leading-relaxed">
-                            {language === 'uz'
-                                ? 'Xozircha yangiliklar yo‘q'
-                                : 'Новостей пока нет'}
+                            {
+                                language === 'uz'
+                                    ? 'Xozircha yangiliklar yo‘q'
+                                    : language === 'ru'
+                                        ? 'Новостей пока нет'
+                                        : 'No news available yet'
+                            }
                         </p>
                     )}
 

@@ -111,7 +111,13 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <h4 className="text-lg font-semibold mb-4">{language == "uz" ? "Ijtimoiy tarmoqlar" : "Социальные сети" }</h4>
+            <h4 className="text-lg font-semibold mb-4">{
+              language === 'uz'
+                  ? "Ijtimoiy tarmoqlar"
+                  : language === 'ru'
+                      ? "Социальные сети"
+                      : "Social Networks"
+            }</h4>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/jobex.uz?igsh=MWw0dm94MWdtOXlveA=="
