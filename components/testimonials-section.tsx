@@ -7,7 +7,6 @@ import { testimonialsData } from '../data/testimonials.ts';
 
 export const TestimonialsSection: React.FC = () => {
   const { language, t } = useLanguage();
-
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
