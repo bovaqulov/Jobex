@@ -4,16 +4,19 @@ export const testimonialsData = [
     name: "Азиз Каримов",
     position: {
       uz: "Qurilish ishchisi",
-      ru: "Строитель"
+      ru: "Строитель",
+      en: "Строитель"
     },
     country: {
       uz: "Germaniya",
-      ru: "Германия"
+      ru: "Германия",
+      en: "Германия"
     },
     rating: 5,
     comment: {
       uz: "Jobex_uz jamoasi menga Germaniyada ish topishda juda ko'p yordam berdi. Hamma hujjatlar to'g'ri rasmiylashtirildi va men hozir yaxshi maosh bilan ishlayman.",
-      ru: "Команда Jobex_uz очень помогла мне найти работу в Германии. Все документы были правильно оформлены, и теперь я работаю с хорошей зарплатой."
+      ru: "Команда Jobex_uz очень помогла мне найти работу в Германии. Все документы были правильно оформлены, и теперь я работаю с хорошей зарплатой.",
+      en: "Команда Jobex_uz очень помогла мне найти работу в Германии. Все документы были правильно оформлены, и теперь я работаю с хорошей зарплатой."
     },
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
   },
@@ -22,16 +25,19 @@ export const testimonialsData = [
     name: "Дилором Исмаилова",
     position: {
       uz: "Hamshira",
-      ru: "Медсестра"
+      ru: "Медсестра",
+      en: "Медсестра"
     },
     country: {
       uz: "Belgiya",
-      ru: "Бельгия"
+      ru: "Бельгия",
+      en: "Бельгия"
     },
     rating: 5,
     comment: {
       uz: "Men Belgiyada hamshira bo'lib ishlayman. Jobex_uz kompaniyasi orqali barcha jarayonlar juda tez va qulay bo'ldi. Rahmat sizlarga!",
-      ru: "Я работаю медсестрой в Бельгии. Благодаря компании Jobex_uz все процессы прошли очень быстро и удобно. Спасибо вам!"
+      ru: "Я работаю медсестрой в Бельгии. Благодаря компании Jobex_uz все процессы прошли очень быстро и удобно. Спасибо вам!",
+      en: "Я работаю медсестрой в Бельгии. Благодаря компании Jobex_uz все процессы прошли очень быстро и удобно. Спасибо вам!"
     },
     avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
   },
@@ -40,15 +46,18 @@ export const testimonialsData = [
     name: "Шерзод Ахмедов",
     position: {
       uz: "Omborchi",
+      en: "Omborchi",
       ru: "Складской работник"
     },
     country: {
       uz: "Polsha",
+      en: "Polsha",
       ru: "Польша"
     },
     rating: 4,
     comment: {
       uz: "Polshada ishlaganiga 6 oy bo'ldi. Ish sharoitlari yaxshi, maosh vaqtida beriladi. Jobex_uz ga ishonish mumkin.",
+      en: "Polshada ishlaganiga 6 oy bo'ldi. Ish sharoitlari yaxshi, maosh vaqtida beriladi. Jobex_uz ga ishonish mumkin.",
       ru: "Работаю в Польше уже 6 месяцев. Условия работы хорошие, зарплата выплачивается вовремя. Jobex_uz можно доверять."
     },
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
@@ -58,15 +67,18 @@ export const testimonialsData = [
     name: "Гулнора Рахимова",
     position: {
       uz: "Oshpaz",
+      en: "Oshpaz",
       ru: "Повар"
     },
     country: {
       uz: "Chexiya",
+      en: "Chexiya",
       ru: "Чехия"
     },
     rating: 5,
     comment: {
       uz: "Chexiyada restoranda oshpaz bo'lib ishlayman. Jobex_uz kompaniyasi professional va ishonchli. Hamma narsani o'z vaqtida hal qilishdi.",
+      en: "Chexiyada restoranda oshpaz bo'lib ishlayman. Jobex_uz kompaniyasi professional va ishonchli. Hamma narsani o'z vaqtida hal qilishdi.",
       ru: "Работаю поваром в ресторане в Чехии. Компания Jobex_uz профессиональная и надежная. Все решили вовремя."
     },
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
