@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Send, Phone, Globe } from 'lucide-react';
-
 
 type FormData = {
     name: string;
@@ -9,8 +9,8 @@ type FormData = {
     countries: string[];
 };
 
-
 export default function SpecialInstagramForm() {
+    const navigate = useNavigate();
     const [language, setLanguage] = useState('uz');
     const [formData, setFormData] = useState<FormData>({
         name: '',
@@ -47,46 +47,57 @@ export default function SpecialInstagramForm() {
             .map(country => countryOptions.find(c => c.value === country)?.label)
             .join(', ');
 
-        // === BITRIX ===
-        await fetch("https://jobex.bitrix24.kz/rest/1/i6xone91ekpq399a/crm.lead.add.json", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                fields: {
-                    TITLE: "Instagram forma orqali yangi lead",
-                    NAME: formData.name,
-                    PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
-                    COMMENTS: formData.message,
-                    UF_CRM_COUNTRIES: selectedCountries
-                },
-                params: { "REGISTER_SONET_EVENT": "Y" }
-            })
-        });
+        try {
+            // === BITRIX ===
+            await fetch("https://jobex.bitrix24.kz/rest/1/i6xone91ekpq399a/crm.lead.add.json", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    fields: {
+                        TITLE: "Instagram forma orqali yangi lead",
+                        NAME: formData.name,
+                        PHONE: [{ VALUE: formData.phone, VALUE_TYPE: "WORK" }],
+                        COMMENTS: formData.message,
+                        UF_CRM_COUNTRIES: selectedCountries
+                    },
+                    params: { "REGISTER_SONET_EVENT": "Y" }
+                })
+            });
 
-        // === TELEGRAM ===
-        await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                chat_id: -1002619344250,
-                text: `
+            // === TELEGRAM ===
+            await fetch(`https://api.telegram.org/bot8358381564:AAFHwgZHiX4gP-EgnFTnGPl36xwCP3HKByk/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: -1002619344250,
+                    text: `
 <b>Yangi Instagram linkdan</b>\n
 👤 Ism: ${formData.name}
 📞 Telefon: ${formData.phone}
 🌍 Davlatlar: ${formData.countries.join(", ")}
 💬 Xabar: ${formData.message}
         `,
-                parse_mode: "HTML"
-            })
-        });
+                    parse_mode: "HTML"
+                })
+            });
 
+            // Show success message
+            alert(language === 'uz'
+                ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
+                : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
+            );
 
-        alert(language === 'uz'
-            ? "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz."
-            : "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
-        );
+            // Navigate to home page after successful submission
+            navigate("/");
+
+        } catch (error) {
+            console.error("Xatolik yuz berdi:", error);
+            alert(language === 'uz'
+                ? "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+                : "Произошла ошибка. Пожалуйста, попробуйте еще раз."
+            );
+        }
     };
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
             <div className="backdrop-blur-md bg-white/80 dark:bg-gray-800/80 rounded-3xl p-8 border border-white/20 w-full max-w-lg shadow-xl">
@@ -207,7 +218,6 @@ export default function SpecialInstagramForm() {
                     </div>
                 </div>
 
-                {/* Language Toggle */}
                 <div className="mt-4 flex justify-center">
                     <button
                         type="button"

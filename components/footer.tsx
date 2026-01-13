@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Instagram, Send, Clock, Facebook, Music2Icon } from 'lucide-react';
+import { Phone, MapPin, Instagram, Send, Clock, Facebook, Music2Icon, LucideMail } from 'lucide-react';
 import { useLanguage } from './language-context.tsx';
 import {ImageWithFallback} from "./figma/ImageWithFallback.tsx";
 
@@ -53,6 +53,12 @@ export const Footer: React.FC = () => {
                 <Phone className="w-5 h-5 text-sky-400" />
                 <a href="tel:+998555118866" className="text-gray-300 hover:text-white transition-colors">
                   +998 55 511 88 66
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <LucideMail className="w-5 h-5 text-sky-400" />
+                <a href="mailto:jobexuz@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+                  jobexuz@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">

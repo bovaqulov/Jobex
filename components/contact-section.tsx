@@ -22,7 +22,6 @@ export const ContactSection: React.FC = () => {
     countries: []
   });
 
-  // Country options with bilingual support
   const countryOptions = [
     {
       value: 'russia',
